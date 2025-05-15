@@ -260,15 +260,7 @@ def find_weak_keys():
 # Known Answer Tests
 def run_tests():
     test_cases = [ #format [key, plaintext, ciphertext]
-        (0b0000000000, 0b10000000, 0b00010111),
-        (0b0000000000, 0b01000000, 0b11010001),
-        (0b0000000000, 0b00100000, 0b00111101),
-        (0b0001111101, 0b00000000, 0b01011001),
-        (0b0000000001, 0b00000000, 0b01111001),
-        (0b0010000100, 0b00000000, 0b11001010),
-        (0b0000000000, 0b00000100, 0b10101011),
-        (0b1000000000, 0b00000000, 0b11101010),
-        (0b0000000101, 0b00000000, 0b00111111)
+        #insert test cases here
     ]
     for key, plaintext, expected_cipher in test_cases:
         # Test encryption with key on plaintext
@@ -300,11 +292,7 @@ def two_des_decrypt(k1, k2, cipher_text):
 def run_tests_mitm():
     #found key that works with all pairs, hardcoded
     mitm_cases = [
-        (0b1011100110, 0b1101000011, 0x42, 0x0f),
-        (0b1011100110, 0b1101000011, 0x72, 0x85),
-        (0b1011100110, 0b1101000011, 0x75, 0x3b),
-        (0b1011100110, 0b1101000011, 0x74, 0x2e),
-        (0b1011100110, 0b1101000011, 0x65, 0xed)
+       # (k1, k2, pair1, pair2)
     ]
     
     for k1, k2, plaintext, expected_cipher in mitm_cases:
@@ -345,8 +333,8 @@ if __name__ == "__main__":
     brute_force_search(plaintexts, ciphertexts, key_pair[0], key_pair[1])    #last tested time: 125.76 seconds 
    
 
-    ciphertext_hex = "aa7a211c558bc0cedb51887f5e98de4d315b8b78cb39cb598c6b54cd6b54d5ef25a464c24e55dde1e4b3c477723c406d37fc6e0599e9d24d907849cd391267b6e3fe25f516accfbe297b4540078563fc25d0dbefc6e04fee3818d60aeec460798ad78d"
-    iv = 0xA6  #initialization vector for cbc
+    ciphertext_hex = "add your cipher text here"
+    iv = "initialization vector for cbc"
 
     decrypted_message = decrypt_cbc(ciphertext_hex, key_pair[0], key_pair[1], iv)
     print("Decrypted Message:", decrypted_message)
